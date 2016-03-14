@@ -16,38 +16,48 @@
  */
 package ie.pars.parseme.annotation;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Behrang QasemiZadeh <me at atmykitchen.info>
  */
 public class ComputeIAA {
 
-    public static void main(String[] sugary) throws Exception {
-        if (sugary.length != 2) {
-            System.err.println("Please provide input arguments, i.e., path for two input annotation files");
-            return;
-        }
-        String file1 = sugary[0];// "Pilot ST - Farsi - Behrang (VO).txt";
-        String file2 = sugary[1];//"Pilot ST - Farsi - Mojgan (BQ corrected format - VO).txt";
+    public static void main(String[] sugary) {
+        try {
+            if (sugary.length != 2) {
+                System.err.println("Please provide input arguments, i.e., path for two input annotation files");
+                return;
+            }
+            String file1 = sugary[0];// "Pilot ST - Farsi - Behrang (VO).txt";
+            String file2 = sugary[1];//"Pilot ST - Farsi - Mojgan (BQ corrected format - VO).txt";
 
-        System.out.println("Checking text in annotation files ...");
-        boolean checkTextConsistency = GeneralChecks.checkTextConsistency(file1, file2);
-        System.out.println("Done!");
-        if (!checkTextConsistency) {
-            System.out.println("Please fix reported inconsistencies prior to IAA computation ");
+            System.out.println("Checking text in annotation files ...");
+            boolean checkTextConsistency;
 
-        } else {
+            checkTextConsistency = GeneralChecks.checkTextConsistency(file1, file2);
 
-            AnnotationProfile apb = new AnnotationProfile(file1);
-            AnnotationProfile apb2 = new AnnotationProfile(file2);
+            if (!checkTextConsistency) {
+                System.out.println("Please fix reported inconsistencies prior to IAA computation ");
 
-            System.out.println(apb.getCommonMWESpan(apb2).size());
-            System.out.println("--- IAAs");
-            System.out.println("Only For Text Spans of VMWE (upper bound IAA using F-Score) : " + apb.computeFMScoreTermBoundary(apb2));
-            System.out.println("Computing IAA using Kappa for Category Assignment: ");
-            System.out.println("Summary k = " + apb2.getKappaForAnnotationPerCategory(apb));
-            simpleReport(apb);
-            simpleReport(apb2);
+            } else {
+                System.out.println("Done checking text... starting IAA computation!");
+                AnnotationProfile apb = new AnnotationProfile(file1);
+                AnnotationProfile apb2 = new AnnotationProfile(file2);
+
+                System.out.println(apb.getCommonMWESpan(apb2).size());
+                System.out.println("--- IAAs");
+                System.out.println("Only For Text Spans of VMWE (upper bound IAA using F-Score) : " + apb.computeFMScoreTermBoundary(apb2));
+                System.out.println("Computing IAA using Kappa for Category Assignment: ");
+                System.out.println("Summary k = " + apb2.getKappaForAnnotationPerCategory(apb));
+                simpleReport(apb);
+                simpleReport(apb2);
+            }
+        } catch (Exception ex) {
+            System.err.println("Exit with error ... please fix the reported problems and try to run the program again.");
+           // Logger.getLogger(ComputeIAA.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("Have a nice day!");
     }

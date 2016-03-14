@@ -17,6 +17,7 @@
 package ie.pars.parseme.annotation;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Map;
@@ -55,7 +56,7 @@ public class AnnotationProfile {
      * @param annotationFileTabSep
      * @throws Exception
      */
-    private void loadAnnotations(String annotationFileTabSep) throws Exception {
+    private void loadAnnotations(String annotationFileTabSep) throws IOException, Exception {
         AnnotationStream annotationFile1 = new AnnotationStream(annotationFileTabSep);
         AnnotationBits annotationBit;
         // this is a temp map for building annotations from bits in the file

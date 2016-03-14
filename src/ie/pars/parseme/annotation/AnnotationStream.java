@@ -38,18 +38,13 @@ public class AnnotationStream {
     private    int lineCounter;
     private int countToken;
 
-    public AnnotationStream(String f) {
+    public AnnotationStream(String f) throws IOException {
         lineCounter = 0;
         countToken = 0;
-        try {
-            try {
-                in = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(AnnotationStream.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(AnnotationStream.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+        in = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+        in.readLine();
+        in.readLine();
 
     }
 

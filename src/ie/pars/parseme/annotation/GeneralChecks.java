@@ -35,7 +35,10 @@ public class GeneralChecks {
             
             if (!read1.getToken().equals(read2.getToken())) {
                 System.err.println("Error line " + annotationFile2.getLineCounter());
-                System.err.println(read1.getToken() + " vs " + read2.getToken() + " in " + annoFile1 + " and in " + annoFile2);
+                System.err.println("Some tokens are not the same, i.e., in line " + annotationFile2.getLineCounter());
+                System.err.println( "* In "+ annoFile1 + " the input is --> " + read1.getToken() );
+                System.err.println( "* But in "+ annoFile2 + " the input is --> " + read2.getToken() );
+                System.err.println("Please fix this problem!");
                 
                 return false;
             }
