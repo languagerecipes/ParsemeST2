@@ -77,6 +77,9 @@ public class AnnotationProfile {
 
                 if (annotationMap.containsKey(a.getKeyUsedDuringConstruction())) {
                     System.err.println("Annotation with double annotate root type or not root type?! or even using the same number for two different annotations... ");
+                    System.err.println("** --> look at line " + annotationBit.getLineNumeber());
+                    System.err.println("** --> File " + annotationFileTabSep);
+                    System.err.println("** --> Token " + annotationBit.toDebugString());
                     throw new Exception("Errornous annotation in file " + annotationFileTabSep
                             + "\nat line number " + annotationBit.getLineNumeber());
                 } else {
@@ -87,6 +90,10 @@ public class AnnotationProfile {
 
                 // do no need to check this, if the key is not already in the map then it is due to error in annotation
                 if (!annotationMap.containsKey(annotationBit1Key)) {
+                    System.err.println("Annotation with double annotate root type or not root type?! or even using the same number for two different annotations... ");
+                    System.err.println("** --> look at line " + annotationBit.getLineNumeber());
+                    System.err.println("** --> File " + annotationFileTabSep);
+                    System.err.println("** --> Token " + annotationBit.toDebugString());
                     throw new Exception("Errornous annotation in file " + annotationFileTabSep
                             + "\nat line number " + annotationBit.getLineNumeber()
                             + "\n**** Please solve the problem in line " + annotationBit.getLineNumeber()
@@ -106,6 +113,10 @@ public class AnnotationProfile {
                 a.addTokenString(annotationBit.getToken());
                 a.setKeyUsedDuringConstruction(annotationBit.getAnnotationBit2Key());
                 if (annotationMap.containsKey(a.getKeyUsedDuringConstruction())) {
+                    System.err.println("Error in annotation... ");
+                    System.err.println("** --> look at line " + annotationBit.getLineNumeber());
+                    System.err.println("** --> File " + annotationFileTabSep);
+                    System.err.println("** --> Token " + annotationBit.toDebugString());
                     throw new Exception("Errornous annotation in file ");
                 } else {
                     annotationMap.put(a.getKeyUsedDuringConstruction(), a);
@@ -223,6 +234,12 @@ public class AnnotationProfile {
         for (Annotation a : annotaionList) {
             if (annotationTypeSpanMap.containsKey(a.getType())) {
                 if (annotationTypeSpanMap.get(a.getType()).containsKey(a.getAnnotationSpan())) {
+                    System.err.println("There is something wrong in the annotation file: " + this.name);
+                    System.err.println( "\nfor the the term span of "
+                            + a.getAnnotationSpan().toString() + " \n"
+                            + "Each span can be annotated only as one type");
+                    System.err.println("i.e., --> " + a.toStringDebug());
+                    System.err.println("Each span can be annotated once and only as one type");
                     throw new Exception("There is something wrong in the annotation file: " + this.name
                             + "\nfor the the term span of "
                             + a.getAnnotationSpan().toString() + " \n"
@@ -249,6 +266,11 @@ public class AnnotationProfile {
 
                 if (annotationTypeSpanMap.containsKey(a.getType())) {
                     if (annotationTypeSpanMap.get(a.getType()).containsKey(a.getAnnotationSpan())) {
+                        System.err.println("There is something wrong in the annotation file: " + this.name
+                                + "\nfor the the term span of "
+                                + a.getAnnotationSpan().toString() + " \n"
+                                + "Each span can be annotated only as one type");
+                        
                         throw new Exception("There is something wrong in the annotation file: " + this.name
                                 + "\nfor the the term span of "
                                 + a.getAnnotationSpan().toString() + " \n"
@@ -283,6 +305,16 @@ public class AnnotationProfile {
         return commonSpans;
     }
 
+    public TreeSet<AnnotationSpan> getDiffMWESpan(AnnotationProfile secondProfile) {
+        TreeSet<AnnotationSpan> commonSpans = new TreeSet<>();
+        Map<AnnotationSpan, Annotation> annotationSpanMapSecondProf = secondProfile.getAnnotationSpanMap();
+        for (AnnotationSpan as : this.getAnnotationSpanMap().keySet()) {
+            if (!annotationSpanMapSecondProf.containsKey(as)) {
+                commonSpans.add(as);
+            }
+        }
+        return commonSpans;
+    }
     /**
      * Main method measuring kappa per category
      *

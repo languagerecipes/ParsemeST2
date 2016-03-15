@@ -16,6 +16,11 @@
  */
 package ie.pars.parseme.annotation;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,11 +30,18 @@ import java.util.logging.Logger;
  */
 public class ComputeIAA {
 
-    public static void main(String[] sugary) {
+    static boolean verbose = false;
+
+    public static void main(String[] sugary) throws FileNotFoundException {
         try {
-            if (sugary.length != 2) {
+            if (sugary.length < 2) {
                 System.err.println("Please provide input arguments, i.e., path for two input annotation files");
                 return;
+            }
+            if (sugary.length == 3) {
+                if (sugary[2].contains("verbose")) {
+                    verbose = true;
+                }
             }
             String file1 = sugary[0];// "Pilot ST - Farsi - Behrang (VO).txt";
             String file2 = sugary[1];//"Pilot ST - Farsi - Mojgan (BQ corrected format - VO).txt";
@@ -54,12 +66,28 @@ public class ComputeIAA {
                 System.out.println("Summary k = " + apb2.getKappaForAnnotationPerCategory(apb));
                 simpleReport(apb);
                 simpleReport(apb2);
+                if (verbose) {
+                    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream("MWE-difflist.txt"), StandardCharsets.UTF_8);
+                    
+                    PrintWriter printer = new PrintWriter(outputStreamWriter);
+                    printer.println("#list of annotated  VMWEs that appear only in the annotation file " + apb.getName());
+                    for (AnnotationSpan a : apb.getDiffMWESpan(apb2)) {
+                        printer.println(apb.getAnnotationSpanMap().get(a).toStringDebug());
+                    }
+                     printer.println("#list of annotated  VMWEs that appear only in the annotation file " + apb2.getName());
+                    for (AnnotationSpan a : apb2.getDiffMWESpan(apb)) {
+                        printer.println(apb.getAnnotationSpanMap().get(a).toStringDebug());
+                    }
+                    printer.close();
+                }
             }
+            
         } catch (Exception ex) {
             System.err.println("Exit with error ... please fix the reported problems and try to run the program again.");
-           // Logger.getLogger(ComputeIAA.class.getName()).log(Level.SEVERE, null, ex);
+            // Logger.getLogger(ComputeIAA.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("Have a nice day!");
+       
     }
 
     /**
@@ -76,9 +104,16 @@ public class ComputeIAA {
         System.out.println("Token: " + apb.getTotalTokenCount());
         System.out.println("Average Number of annotated VMWE per Sentence: " + (apb.getAnnotaionList().size() * 1.0 / apb.getTotalSentNumber()));
         System.out.println("MWEs with Identical Surface Structure (i.e., only strings and not types): " + apb.getAnnotationFreqDist().size());
-//        for(Annotation a: apb.getAnnotaionList()){
-//            System.out.println(a.toStringDebug());
-//        }
+
+        if (verbose) {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(apb.getName() + "-MWEList.txt"), StandardCharsets.UTF_8);
+            PrintWriter printer = new PrintWriter(outputStreamWriter);
+            printer.println("#list of annotated  VMWEs are");
+            for (Annotation a : apb.getAnnotaionList()) {
+                printer.println(a.toStringDebug());
+            }
+            printer.close();
+        }
 
     }
 

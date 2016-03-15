@@ -107,24 +107,38 @@ public class AnnotationBits {
             return lb;
 
         } else {
+            System.err.println("Error in parsing line " + lineNumber );
             throw new Exception("Error in parsing line");
         }
     }
 
-    public String toString(String delimiter) {
+        public String toDebugString() {
+            String delimiter = "\t";
         return toStringBit(tokenIdentifier, delimiter)
                 + toStringBit(token, delimiter)
                 // +nsb
-                + delimiter // for nsb
-                + delimiter // for mwt
                 + toStringBit(mweIdentifier1, delimiter)
                 + toStringBit(mweType1X, delimiter)
-                + delimiter // for the sel
+
                 + toStringBit(mweIdentifier2, delimiter)
-                + toStringBit(mweType2, delimiter)
-                + delimiter; // for the
+                + toStringBit(mweType2, delimiter);
 
     }
+
+//    public String toString(String delimiter) {
+//        return toStringBit(tokenIdentifier, delimiter)
+//                + toStringBit(token, delimiter)
+//                // +nsb
+//                + delimiter // for nsb
+//                + delimiter // for mwt
+//                + toStringBit(mweIdentifier1, delimiter)
+//                + toStringBit(mweType1X, delimiter)
+//                + delimiter // for the sel
+//                + toStringBit(mweIdentifier2, delimiter)
+//                + toStringBit(mweType2, delimiter)
+//                + delimiter; // for the
+//
+//    }
 
     final static public String replaceStringForNullValueInAnnotation = "";
 
