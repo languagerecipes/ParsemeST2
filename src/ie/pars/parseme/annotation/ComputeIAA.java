@@ -21,8 +21,6 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -67,22 +65,26 @@ public class ComputeIAA {
                 simpleReport(apb);
                 simpleReport(apb2);
                 if (verbose) {
-                    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream("MWE-difflist.txt"), StandardCharsets.UTF_8);
+                    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream("-VMWE-diff-list.txt"), StandardCharsets.UTF_8);
                     
                     PrintWriter printer = new PrintWriter(outputStreamWriter);
+                    printer.println("-----");
                     printer.println("#list of annotated  VMWEs that appear only in the annotation file " + apb.getName());
                     for (AnnotationSpan a : apb.getDiffMWESpan(apb2)) {
                         printer.println(apb.getAnnotationSpanMap().get(a).toStringDebug());
                     }
-                     printer.println("#list of annotated  VMWEs that appear only in the annotation file " + apb2.getName());
+                    printer.println("\n-----");
+                    printer.println("#list of annotated  VMWEs that appear only in the annotation file " + apb2.getName());
                     for (AnnotationSpan a : apb2.getDiffMWESpan(apb)) {
-                        printer.println(apb.getAnnotationSpanMap().get(a).toStringDebug());
+                        printer.println(apb2.getAnnotationSpanMap().get(a).toStringDebug());
                     }
+                    printer.flush();
                     printer.close();
                 }
             }
             
         } catch (Exception ex) {
+          //  System.out.println(ex);
             System.err.println("Exit with error ... please fix the reported problems and try to run the program again.");
             // Logger.getLogger(ComputeIAA.class.getName()).log(Level.SEVERE, null, ex);
         }

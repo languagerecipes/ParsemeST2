@@ -115,7 +115,7 @@ public class Annotation //implements Comparable<Annotation> {
             b.append(tokenStringList.get(i)).append(" ");
             t.append(tokenNumberIdentifier.get(i)).append(" ");
         }
-        return b.toString() + "\t / " + this.type +"\t token offset:" +t.toString()+ "\t / L:" + this.lineCountOffset +"\t / S:" + this.sentenceNumber;
+        return b.toString() + "\t " + this.type +"\t Token offsets are: " +t.toString()+ "\t  @Line:" + this.lineCountOffset +"\t  @Sentence:" + this.sentenceNumber;
     }
 
 

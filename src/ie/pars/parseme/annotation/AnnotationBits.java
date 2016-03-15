@@ -54,7 +54,7 @@ public class AnnotationBits {
     }
 
     public int getLineNumeber() {
-        return lineNumeber;
+        return lineNumeber +2;
     }
 
     public String getAnnotationBit2Key() {
