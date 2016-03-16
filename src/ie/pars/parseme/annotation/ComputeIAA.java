@@ -84,9 +84,11 @@ public class ComputeIAA {
             }
             
         } catch (Exception ex) {
-          //  System.out.println(ex);
+            
             System.err.println("Exit with error ... please fix the reported problems and try to run the program again.");
             // Logger.getLogger(ComputeIAA.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Here are the code lines that produces error: \n");
+            System.out.println(ex);
         }
         System.out.println("Have a nice day!");
        

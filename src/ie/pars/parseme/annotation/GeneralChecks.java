@@ -16,6 +16,7 @@
  */
 package ie.pars.parseme.annotation;
 
+import java.io.IOException;
 import java.util.TreeSet;
 
 /**
@@ -24,7 +25,7 @@ import java.util.TreeSet;
  */
 public class GeneralChecks {
 
-     public static boolean checkTextConsistency(String annoFile1, String annoFile2) throws Exception {
+     public static boolean checkTextConsistency(String annoFile1, String annoFile2) throws IOException, Exception  {
         AnnotationStream annotationFile1 = new AnnotationStream(annoFile1);
         AnnotationStream annotationFile2 = new AnnotationStream(annoFile2);
         AnnotationBits read1;
