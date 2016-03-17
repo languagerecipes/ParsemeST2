@@ -30,7 +30,7 @@ public class ComputeIAA {
 
     static boolean verbose = false;
 
-    public static void main(String[] sugary) throws FileNotFoundException {
+    public static void main(String[] sugary) throws FileNotFoundException, Exception {
         try {
             if (sugary.length < 2) {
                 System.err.println("Please provide input arguments, i.e., path for two input annotation files");
@@ -66,7 +66,7 @@ public class ComputeIAA {
                 simpleReport(apb2);
                 if (verbose) {
                     OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream("-VMWE-diff-list.txt"), StandardCharsets.UTF_8);
-                    
+
                     PrintWriter printer = new PrintWriter(outputStreamWriter);
                     printer.println("-----");
                     printer.println("#list of annotated  VMWEs that appear only in the annotation file " + apb.getName());
@@ -82,16 +82,16 @@ public class ComputeIAA {
                     printer.close();
                 }
             }
-            
+
         } catch (Exception ex) {
-            
+
             System.err.println("Exit with error ... please fix the reported problems and try to run the program again.");
             // Logger.getLogger(ComputeIAA.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println("Here are the code lines that produces error: \n");
             System.out.println(ex);
         }
         System.out.println("Have a nice day!");
-       
+
     }
 
     /**

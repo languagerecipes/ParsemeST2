@@ -84,8 +84,13 @@ public class AnnotationStream {
     }
 
     public AnnotationBits read() throws IOException, Exception {
-        if (nextLine()) {
-            return AnnotationBits.fromString(line, currentSentenceNumber, lineCounter);
+        try {
+            if (nextLine()) {
+                return AnnotationBits.fromString(line, currentSentenceNumber, lineCounter);
+            }
+        } catch (Exception ex) {
+            System.err.println("Error in file " + this.fileName);
+            throw ex;
         }
         return null;
 

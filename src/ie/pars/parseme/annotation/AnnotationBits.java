@@ -75,6 +75,10 @@ public class AnnotationBits {
         if (line.trim().length() != 0) {
             AnnotationBits lb = new AnnotationBits();
             String[] splitBits = line.split("\t");
+            if (splitBits.length < 2) {
+                System.err.println("* Fix at line number " + (lineNumber+2 ) + " which maps to sentence number " + sentenceNumber + " --> " + line);
+                throw new Exception("Something wrong in line " + (lineNumber +2));
+            }
             lb.tokenIdentifier = splitBits[0];
             lb.token = splitBits[1];
             if (splitBits.length > 4) {
