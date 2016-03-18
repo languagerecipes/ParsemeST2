@@ -43,7 +43,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 25	(	nsp							
 26	ΚΗΜΔΗΣ	nsp							
 27	)								
-28	δίνει			1	LVC				
+28	δίνει			1					
 29	η								
 30	κυβέρνηση	nsp							
 31	.								
@@ -209,7 +209,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 5	»								
 6	σχεδιάζουν								
 7	να								
-8	μην			1	ID				
+8	μην			1					
 9	αφήσουν			1					
 10	την								
 11	κυβέρνηση								
@@ -740,14 +740,14 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 16	ο								
 17	Λευτέρης								
 18	Παπαπέτρου								
-19	θα			1	ID				
-20	πάρει			1					
+19	θα			2	ID				
+20	πάρει			2					
 21	τη								
 22	Ζέτα								
 23	Μακρυπούλια								
-24	από			1					
-25	το			1					
-26	χέρι			1					
+24	από			2					
+25	το			2					
+26	χέρι			2					
 27	και								
 28	θα								
 29	την								
@@ -1074,18 +1074,18 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 31	πρώην								
 32	ανατολικές								
 33	χώρες								
-34	υψώνουν			1	ID				
-35	τείχη	nsp		1					
+34	υψώνουν			2	ID				
+35	τείχη	nsp		2					
 36	,								
 37	καταγγέλλουν								
 38	την								
 39	Ελλάδα	nsp							
 40	,								
 41	κάποιοι								
-42	της			2	ID				
-43	κουνούν			2					
-44	το			2					
-45	δάχτυλο	nsp		2					
+42	της			3	ID				
+43	κουνούν			3					
+44	το			3					
+45	δάχτυλο	nsp		3					
 46	,								
 47	κανείς								
 48	δεν								
@@ -2525,7 +2525,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 15	.	nsp							
 16	.	nsp							
 17	.								
-18	δεν			1	LVC				
+18	δεν			1					
 19	ελήφθησαν			1					
 20	για								
 21	τους								
@@ -3613,7 +3613,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 3	περάσει			1					
 4	άπειρες								
 5	φορές								
-6	από			1	SENT				
+6	από			1					
 7	το			1					
 8	μυαλό			1					
 9	να								
@@ -5350,7 +5350,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 32	από								
 33	το								
 34	Η	nsp							
-35									
+35	"'"								
 36	Μονομελές								
 37	Πλημμελειοδικείο								
 38	της								
@@ -6196,7 +6196,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 15	τα								
 16	πάντα								
 17	σ	nsp							
-18									
+18	"'"								
 19	εκείνον								
 20	και								
 21	στον								
@@ -6701,7 +6701,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 5	πολύ								
 6	και								
 7	σ	nsp		1	ID				
-8									
+8	"'"								
 9	την			1					
 10	έφερε	nsp		1					
 11	;								

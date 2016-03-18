@@ -209,7 +209,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 5	»										
 6	σχεδιάζουν										
 7	να										
-8	μην			1	ID						
+8	μην			1							
 9	αφήσουν			1							
 10	την										
 11	κυβέρνηση										
@@ -1871,7 +1871,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 42	ζητώ			3	LVC						
 43	και										
 44	προσωπικά										
-45	συγγνώμη			3	LVC						
+45	συγγνώμη			3							
 46	από										
 47	όσους										
 48	έχουν										
@@ -2193,7 +2193,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 11	ότι										
 12	αποφάσισε										
 13	να										
-14	αφήσει			1	ID/VPC						
+14	αφήσει			1	ID						
 15	για										
 16	τα										
 17	καλά										
@@ -2774,9 +2774,9 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 20	εργαλείο										
 21	για										
 22	τη										
-23	λήψη			1	LVC/_						
+23	λήψη										
 24	στρατηγικών										
-25	αποφάσεων			1							
+25	αποφάσεων										
 26	σε										
 27	τομείς										
 28	έρευνας										
@@ -2844,13 +2844,13 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 17	είμαστε										
 18	περήφανοι										
 19	που										
-20	δώσαμε			1	LVC						
+20	δώσαμε			2	LVC						
 21	αυτές										
 22	τις										
-23	μάχες			1							
+23	μάχες			2							
 24	που										
-25	δώσαμε										
-26	ανάσα										
+25	δώσαμε			3	ID						
+26	ανάσα			3							
 27	αξιοπρέπειας										
 28	και										
 29	αγώνα										
@@ -2915,8 +2915,8 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 6	δεν										
 7	φαίνεται										
 8	πως										
-9	θα										
-10	ρίξουν			1	ID						
+9	θα			1	ID						
+10	ρίξουν			1							
 11	νερό			1							
 12	στο			1							
 13	κρασί			1							
@@ -2948,9 +2948,9 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 8	,										
 9	είτε										
 10	να										
-11	σκάβουν			1	SENT						
-12	τον			1							
-13	λάκκο			1							
+11	σκάβουν			2	SENT						
+12	τον			2							
+13	λάκκο			2							
 14	του										
 15	αντιπάλου										
 16	τους										
@@ -2958,10 +2958,10 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 18	στην										
 19	πορεία										
 20	να										
-21	πέφτουν			1	SENT						
-22	μέσα			1							
-23	οι			1							
-24	ίδιοι	nsp		1							
+21	πέφτουν										
+22	μέσα										
+23	οι										
+24	ίδιοι	nsp									
 25	.										
 											
 1	Και										
@@ -3183,9 +3183,9 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 25	οι										
 26	αγρότες										
 27	θα										
-28	λάβουν			1	LVC						
+28	λάβουν			2	LVC						
 29	καθοριστικές										
-30	αποφάσεις			1							
+30	αποφάσεις			2							
 31	για										
 32	τον										
 33	τρόπο										
@@ -3331,8 +3331,8 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 6	οικονομική										
 7	ανάπτυξη										
 8	να										
-9	έχουν										
-10	κάνει			1	LVC						
+9	έχουν			1	LVC						
+10	κάνει			1							
 11	την			1							
 12	εμφάνισή			1							
 13	τους			1							
@@ -3518,7 +3518,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 50	προχωρήσει										
 51	χρειάζεται										
 52	να										
-53	βάλει			1	LVC/VPC						
+53	βάλει			1	ID						
 54	μπροστά			1							
 55	την										
 56	ατζέντα										
@@ -3627,7 +3627,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 17	θα										
 18	δημιουργηθεί										
 19	και										
-20	κάνω			2	LVC/VPC						
+20	κάνω			2	VPC						
 21	πίσω	nsp		2							
 22	.										
 											
@@ -4007,7 +4007,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 3	,										
 4	που										
 5	της										
-6	το			1	ID/SENT						
+6	το			1	OTH						
 7	φύλαγε	nsp		1							
 8	,										
 9	αποδόμησε										
@@ -4116,19 +4116,19 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 37	το										
 38	δημοψήφισμα										
 39	όμως										
-40	έκανε			1	ID						
-41	σημεία			1			2	LVC		3	ID
-42	και			1							
-43	τέρατα	nsp		1							
+40	έκανε			2	ID		3	LVC		4	ID
+41	σημεία			2							
+42	και			2							
+43	τέρατα	nsp		2							
 44	,										
-45	συνεδριάσεις						2	LVC			
+45	συνεδριάσεις						3				
 46	που										
 47	κρατούσαν										
 48	μέχρι										
 49	το										
 50	πρωί	nsp									
 51	,										
-52	bullying	nsp								3	ID
+52	bullying	nsp								4	
 53	,										
 54	απίστευτα										
 55	πράγματα										
@@ -4229,9 +4229,9 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 19	για										
 20	να										
 21	τον										
-22	κρατήσουν			1	ID						
-23	στη			1							
-24	ζωή	nsp		1							
+22	κρατήσουν			2	ID						
+23	στη			2							
+24	ζωή	nsp		2							
 25	.										
 											
 1	Ο										
@@ -4655,7 +4655,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 27	τη			1							
 28	σκιά			1							
 29	τους			1							
-30	στις			1							
+30	στις					SEL					
 31	προοπτικές										
 32	ανάπτυξης										
 33	για										
@@ -4821,10 +4821,10 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 49	περίπου	nsp									
 50	,										
 51	δεν										
-52	έχει			1	LVC/_						
-53	γίνει			1							
+52	έχει			2	LVC						
+53	γίνει			2							
 54	ακόμα										
-55	διασταύρωση			1							
+55	διασταύρωση			2							
 56	στοιχείων	nsp									
 57	.										
 											
@@ -4975,7 +4975,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 											
 1	Πολύ										
 2	ενδιαφέρον										
-3	πηγαδάκι			1	ID/_						
+3	πηγαδάκι			1	ID						
 4	στήθηκε			1							
 5	στο										
 6	Εντευκτήριο										
@@ -5057,11 +5057,11 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 6	όλα										
 7	αυτά										
 8	της										
-9	ξυπνούν			1	OTH/_						
+9	ξυπνούν			1	ID						
 10	μνήμες			1							
-11	από										
-12	το										
-13	παρελθόν	nsp									
+11	από			1							
+12	το			1							
+13	παρελθόν	nsp		1							
 14	,										
 15	όταν										
 16	είχε										
@@ -5350,7 +5350,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 32	από										
 33	το										
 34	Η	nsp									
-35	H										
+35	"'"										
 36	Μονομελές										
 37	Πλημμελειοδικείο										
 38	της										
@@ -5633,10 +5633,10 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 23	πάλαι										
 24	ποτέ										
 25	ΑΣΟΕΕ	nsp									
-26	,			2	LVC						
-27	κάνουν			2							
-28	έκκληση										
-29	στις										
+26	,										
+27	κάνουν			2	LVC						
+28	έκκληση			2							
+29	στις					SEL					
 30	ελληνικές										
 31	αρχές										
 32	να										
@@ -5662,8 +5662,8 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 11	τη										
 12	Λαϊκή										
 13	Ενότητα										
-14	κάνοντας			1	LVC						
-15	λόγο			1							
+14	κάνοντας			2	LVC						
+15	λόγο			2							
 16	για					SEL/_					
 17	«	nsp									
 18	ανόητες										
@@ -5719,9 +5719,9 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 											
 1	Συρία	nsp									
 2	:										
-3	Έκκληση			1	LVC/_						
+3	Έκκληση										
 4	Κέρι										
-5	σε					SEL					
+5	σε										
 6	κυβέρνηση										
 7	και										
 8	αντιπολίτευση										
@@ -5766,10 +5766,10 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 24	Λονδίνο	nsp									
 25	,										
 26	που										
-27	πέφτει			1	ID						
-28	ξερή			1							
-29	για			1							
-30	ύπνο			1							
+27	πέφτει			2	ID						
+28	ξερή										
+29	για			2							
+30	ύπνο			2							
 31	και										
 32	δεν										
 33	λέει										
@@ -6196,7 +6196,7 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 15	τα										
 16	πάντα										
 17	σ	nsp									
-18											
+18	"'"										
 19	εκείνον										
 20	και										
 21	στον										
@@ -6435,8 +6435,8 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 15	εκπρόσωπος	nsp									
 16	,										
 17	και										
-18	έκανε			1	LVC						
-19	αναφορά			1							
+18	έκανε			2	LVC						
+19	αναφορά			2							
 20	στο					SEL					
 21	άρθρο										
 22	19										
@@ -6542,9 +6542,9 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 17	να										
 18	σταθμιστεί										
 19	η										
-20	ανάληψη			2	LVC/_						
+20	ανάληψη										
 21	περαιτέρω										
-22	πρωτοβουλιών			2							
+22	πρωτοβουλιών										
 23	σε										
 24	διεθνές										
 25	επίπεδο										
@@ -6700,9 +6700,9 @@ Rank	Token	No space  (nsp)	MTW  identifiers	First			Second
 4	αγάπησες										
 5	πολύ										
 6	και										
-7	σ	nsp									
-8											
-9	την			1	ID/OTH						
+7	σ	nsp				SEL					
+8	"'"										
+9	την			1	OTH						
 10	έφερε	nsp		1							
 11	;										
 											
