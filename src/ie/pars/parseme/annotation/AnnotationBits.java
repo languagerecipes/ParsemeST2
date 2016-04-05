@@ -70,6 +70,14 @@ public class AnnotationBits {
         }
     }
 
+    /**
+     * Method to parse an annotation line
+     * @param line
+     * @param sentenceNumber
+     * @param lineNumber
+     * @return
+     * @throws Exception 
+     */
     public static AnnotationBits fromString(String line, int sentenceNumber, int lineNumber) throws Exception {
 
         if (line.trim().length() != 0) {
@@ -94,14 +102,14 @@ public class AnnotationBits {
                 }
             }
 
-            if (splitBits.length > 7) {
-                String trim = splitBits[7].trim();
+            if (splitBits.length > 6) {
+                String trim = splitBits[6].trim();
                 if (trim.length() > 0) {
                     lb.mweIdentifier2 = trim;
                 }
             }
-            if (splitBits.length > 8) {
-                String trim = splitBits[8].trim();
+            if (splitBits.length > 7) {
+                String trim = splitBits[7].trim();
                 if (trim.length() > 0) {
                     lb.mweType2 = trim.toUpperCase();
                 }
@@ -129,20 +137,7 @@ public class AnnotationBits {
 
     }
 
-//    public String toString(String delimiter) {
-//        return toStringBit(tokenIdentifier, delimiter)
-//                + toStringBit(token, delimiter)
-//                // +nsb
-//                + delimiter // for nsb
-//                + delimiter // for mwt
-//                + toStringBit(mweIdentifier1, delimiter)
-//                + toStringBit(mweType1X, delimiter)
-//                + delimiter // for the sel
-//                + toStringBit(mweIdentifier2, delimiter)
-//                + toStringBit(mweType2, delimiter)
-//                + delimiter; // for the
-//
-//    }
+
 
     final static public String replaceStringForNullValueInAnnotation = "";
 
