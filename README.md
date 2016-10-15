@@ -47,27 +47,17 @@ $ ```java -jar ParsemeST.jar "Pilot2 ST - Template.tsv" "Pilot2 ST - Template.ts
 
 ```
 No annotation type is given: your file is parsed without any restriction on their types.
-
 You have requested a check on Pilot2 ST - Template.tsv
 
 No annotation type is given: your file is parsed without any restriction on their types.
-
 Parsing your annotation file...
-
 If there are errors the parser will throw you an Exception! 
-
 ID accepted: number of instances are 3
-
 ID/_ accepted: number of instances are 1
-
 LVC accepted: number of instances are 1
-
 LVC/ID accepted: number of instances are 2
-
 LVC/_ accepted: number of instances are 1
-
 OTH accepted: number of instances are 1
-
 VPC accepted: number of instances are 3
 
 Your file seems to be ok! Here are some stat for you: 
@@ -75,13 +65,9 @@ Your file seems to be ok! Here are some stat for you:
 --- annotation profile for ->  Pilot2 ST - Template.tsv
 
 Number of annotations: 12
-
 Sentenc: 8
-
 Token: 105
-
 Average Number of annotated VMWE per Sentence: 1.5
-
 MWEs with Identical Surface Structure (i.e., only strings and not types): 12
 
 If you have passed the -verbose parameter in your command, then further information and the list of MWEs can be found in Pilot2 ST - Template.tsv-MWEList.txt
