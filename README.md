@@ -3,14 +3,16 @@ Codes for checking TSV Annotaiton files and computing IAA.
 
 
 # How to use this code? 
-"
 * Make sure that you have the latest version of Java Runtime Machine is installed on your computer.  
 
-To run the codes, please go to your OS terminal (for windows users, please type "cmd" in the "run or search box" of your "start button"). Type the following in the terminal:
+Download ParsemeST.jar from https://github.com/languagerecipes/ParsemeST2/blob/master/bin/ParsemeST.jar?raw=true
+ * If you need, an example of annotation file also download: https://github.com/languagerecipes/ParsemeST2/raw/master/bin/Pilot2%20ST%20-%20Template.tsv 
 
-$ java -jar ParsemeST.jar arg1 arg2 (and opptionally arg3 and 4)
+To run the codes, please go to your OS terminal (for windows users, please type "cmd" in the "run or search box" of your "start button" and then click on "Command Prompt"). Type the following in the terminal:
 
-instead of arg1 and arg2 in the above, use the following values:
+$ ```java -jar ParsemeST.jar arg1 arg2 (and opptionally arg3 and 4)```
+
+instead of `arg1` and `arg2` in the above, use the following values:
 
 Obligatory input arguments Arg1 and Arg2 :
 	Arg1) path for the first annotation file
