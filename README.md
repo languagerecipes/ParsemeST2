@@ -42,7 +42,8 @@ Please create a text file and and write each of the types separated by spaces or
 
 For instanc running the code over the provided example file, with the arguments ```"Pilot2 ST - Template.tsv" "Pilot2 ST - Template.tsv"``` generates this output:
 
-$ ```java -jar ParsemeST.jar "Pilot2 ST - Template.tsv" "Pilot2 ST - Template.tsv"```
+$ ```text
+java -jar ParsemeST.jar "Pilot2 ST - Template.tsv" "Pilot2 ST - Template.tsv"```
 
 
 ```No annotation type is given: your file is parsed without any restriction on their types.
@@ -83,7 +84,8 @@ Average Number of annotated VMWE per Sentence: 1.5
 
 MWEs with Identical Surface Structure (i.e., only strings and not types): 12
 
-If you have passed the -verbose parameter in your command, then further information and the list of MWEs can be found in Pilot2 ST - Template.tsv-MWEList.txt```
+If you have passed the -verbose parameter in your command, then further information and the list of MWEs can be found in Pilot2 ST - Template.tsv-MWEList.txt
+```
 
 # Bugs and Issues
 Please report bugs and issues using Github: https://github.com/languagerecipes/ParsemeST2/issues 
