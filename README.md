@@ -42,11 +42,11 @@ Please create a text file and and write each of the types separated by spaces or
 
 For instanc running the code over the provided example file, with the arguments ```"Pilot2 ST - Template.tsv" "Pilot2 ST - Template.tsv"``` generates this output:
 
-$ ```text
-java -jar ParsemeST.jar "Pilot2 ST - Template.tsv" "Pilot2 ST - Template.tsv"```
+$ ```java -jar ParsemeST.jar "Pilot2 ST - Template.tsv" "Pilot2 ST - Template.tsv"```
 
 
-```No annotation type is given: your file is parsed without any restriction on their types.
+```
+No annotation type is given: your file is parsed without any restriction on their types.
 
 You have requested a check on Pilot2 ST - Template.tsv
 
