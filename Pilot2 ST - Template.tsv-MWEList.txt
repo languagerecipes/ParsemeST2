@@ -1,0 +1,13 @@
+#list of annotated  VMWEs are
+are in doubt 	 LVC	 Token offsets are: 2 3 5 	  @Line:4	  @Sentence:0
+shadow cast 	 ID	 Token offsets are: 8 9 	  @Line:10	  @Sentence:0
+Do not talk the talk if you can not walk the walk  	 OTH	 Token offsets are: 1 2 3 4 5 6 7 8 9 10 11 12 	  @Line:27	  @Sentence:1
+open Pandora ' s box 	 ID	 Token offsets are: 5 8 9 10 11 	  @Line:46	  @Sentence:2
+let out 	 VPC	 Token offsets are: 10 13 	  @Line:64	  @Sentence:3
+let the cat out of the bag 	 ID	 Token offsets are: 10 11 12 13 14 15 16 	  @Line:64	  @Sentence:3
+letting out 	 VPC	 Token offsets are: 3 7 	  @Line:75	  @Sentence:4
+letting in 	 VPC	 Token offsets are: 3 5 	  @Line:75	  @Sentence:4
+had walk 	 LVC/_	 Token offsets are: 2 4 	  @Line:87	  @Sentence:5
+heart broke 	 LVC/ID	 Token offsets are: 5 10 	  @Line:101	  @Sentence:6
+Take care 	 LVC/ID	 Token offsets are: 1 2 	  @Line:109	  @Sentence:7
+go too far 	 ID/_	 Token offsets are: 6 7 8 	  @Line:115	  @Sentence:7

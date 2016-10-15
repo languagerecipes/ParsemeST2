@@ -36,15 +36,22 @@ public class AnnotationProfile {
     private Collection<Annotation> annotaionList;
     private int totalSentNumber;
     private int totalTokenCount;
-
+    private SettingsAnnotationType annotateTypeSetting;
+    
     /**
      *
      * @param annotationFile
      * @throws Exception
      */
-    public AnnotationProfile(String annotationFile) throws Exception {
+    
+        
+    
+
+    AnnotationProfile(String annotationFile, SettingsAnnotationType annotationTypeSetting) throws Exception {
         name = new File(annotationFile).getName();
+        this.annotateTypeSetting = annotationTypeSetting;
         loadAnnotations(annotationFile);
+        
     }
 
     public String getName() {
@@ -130,9 +137,27 @@ public class AnnotationProfile {
                 annotationMap.get(annotationBit2Key).addTokenString(annotationBit.getToken());
             }
         }
+        
+       
+        
         this.totalTokenCount = annotationFile1.getCountToken();
         this.totalSentNumber = annotationFile1.getCurrentSentenceNumber();
         this.annotaionList = annotationMap.values();
+        
+        // aplly the annotation settings
+        TreeMap<String, TreeMap<AnnotationSpan, Annotation>> annotationByCategory = getAnnotationByCategory();
+        for(String annotationType: annotationByCategory.keySet() ){
+           if(this.annotateTypeSetting.accepts(annotationType)){
+               System.out.println(annotationType + " accepted: number of instances are " + annotationByCategory.get(annotationType).size());
+           }else{
+           System.out.println("According to your settings, " + annotationType + " is not allowed: Please fix this for all the " + annotationByCategory.get(annotationType).size() +" instances!");
+           throw new Exception("First fix this problem and then come back to continue.");
+           }
+            
+        
+        }
+        
+        
     }
 
     public int getTotalTokenCount() {
@@ -293,7 +318,7 @@ public class AnnotationProfile {
         return annotationTypeSpanMap;
     }
 
-    public int countAllAnnatatedTerms() {
+    public int countAllAnnotatedTerms() {
         return this.annotaionList.size();
     }
 

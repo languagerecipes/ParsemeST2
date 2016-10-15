@@ -79,7 +79,6 @@ public class AnnotationBits {
      * @throws Exception 
      */
     public static AnnotationBits fromString(String line, int sentenceNumber, int lineNumber) throws Exception {
-
         if (line.trim().length() != 0) {
             AnnotationBits lb = new AnnotationBits();
             String[] splitBits = line.split("\t");
@@ -116,8 +115,11 @@ public class AnnotationBits {
             }
             lb.sentenceNumber = sentenceNumber;
             lb.lineNumeber = lineNumber;
+            
+            
             return lb;
 
+            
         } else {
             System.err.println("Error in parsing line " + lineNumber );
             throw new Exception("Error in parsing line");
