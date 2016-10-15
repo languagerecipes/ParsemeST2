@@ -8,9 +8,9 @@ Codes for checking TSV Annotaiton files and computing IAA.
 Download ParsemeST.jar from https://github.com/languagerecipes/ParsemeST2/blob/master/bin/ParsemeST.jar?raw=true
  * If you need, an example of annotation file also download: https://github.com/languagerecipes/ParsemeST2/raw/master/bin/Pilot2%20ST%20-%20Template.tsv 
 
-Alternatively, use the git commands to downlad and access files. For example, clone this repo by:
+Alternatively, use the git commands to downlad and access files. Binaries can be found in the `/bin/` folder. For example, clone this repo by:
+
 $ ```git clone https://github.com/languagerecipes/ParsemeST2.git```
-Binaries can be found in the `/bin/` folder.
 
 To run the codes, please go to your OS terminal (for windows users, please type "cmd" in the "run or search box" of your "start button" and then click on "Command Prompt"). Type the following in the terminal:
 
