@@ -30,6 +30,7 @@ To validate an annotation file, you have to provide two obligatory input argumen
 
  Arg1) specify the language by typing: ```lang:INPUT_LANGUAGE```, where ```INPUT_LANGUAGE``` can be, e.g., English, Polish, Turkish, etc.
  Arg2) path for the first annotation file by typing: ```source:ANNOTATION_FILE_PATH```, where ```ANNOTATION_FILE_PATH``` is the path to your TSV file. If the paths contains a space-char, then please use quotation marks around them, e.g., ```source:"Pilot ST - French - Agata Savary.tsv"```.
+ 
  Arg3) path for the second annotation file by typing: ```target:ANNOTATION_FILE_PATH```, where ```ANNOTATION_FILE_PATH``` is the path to your TSV file. * e.g., ```target:"Pilot ST - French - John Kennedy.tsv"```.
 
 ## Optional Arguments: 
