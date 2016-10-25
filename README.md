@@ -8,7 +8,7 @@ Codes for checking TSV Annotaiton files and computing IAA.
 Download the code from https://github.com/languagerecipes/ParsemeST2/raw/master/bin.zip and unzip it in a local folder.
  * If you need, an example of annotation file also download: https://github.com/languagerecipes/ParsemeST2/raw/master/bin/Pilot2%20ST%20-%20Template.tsv 
 
-Alternatively, use the git commands to downlad and access files. Binaries can be found in the `bin.zip` folder. For example, clone this repo by:
+Alternatively, use the git commands to downlad and access files. Binaries can be found in the `bin.zip`. For example, clone this repo by:
 
 $ ```git clone https://github.com/languagerecipes/ParsemeST2.git```
 
@@ -18,18 +18,20 @@ To run the codes, please go to your OS terminal (for windows users, please type 
 $ ```java -jar ParsemeST.jar arg1 arg2 arg3 etc.```
 
 instead of "arg1" and "arg2" in the above, use the following values:
+
 ## To check and validate an annotation file: 
 To validate an annotation file, you have to provide two obligatory input arguments:
-	Arg1) specify the language by typing: ```lang:INPUT_LANGUAGE```, where ```INPUT_LANGUAGE``` can be, e.g., English, Polish, Turkish, etc.
-	Arg2) path for the annotation file by typing: ```source:ANNOTATION_FILE_PATH```, where ```ANNOTATION_FILE_PATH``` is the path to your TSV file. If the paths contains a space-char, then please use quotation marks around them,
+
+Arg1) specify the language by typing: ```lang:INPUT_LANGUAGE```, where ```INPUT_LANGUAGE``` can be, e.g., English, Polish, Turkish, etc.
+Arg2) path for the annotation file by typing: ```source:ANNOTATION_FILE_PATH```, where ```ANNOTATION_FILE_PATH``` is the path to your TSV file. If the paths contains a space-char, then please use quotation marks around them,
  * e.g., ```source:"Pilot ST - French - Agata Savary.tsv"```.
 
 ## To compute IAA: 
 
-	Arg1) specify the language by typing: ```lang:INPUT_LANGUAGE```, where ```INPUT_LANGUAGE``` can be, e.g., English, Polish, Turkish, etc.
-	Arg2) path for the first annotation file by typing: ```source:ANNOTATION_FILE_PATH```, where ```ANNOTATION_FILE_PATH``` is the path to your TSV file. If the paths contains a space-char, then please use quotation marks around them,
+Arg1) specify the language by typing: ```lang:INPUT_LANGUAGE```, where ```INPUT_LANGUAGE``` can be, e.g., English, Polish, Turkish, etc.
+Arg2) path for the first annotation file by typing: ```source:ANNOTATION_FILE_PATH```, where ```ANNOTATION_FILE_PATH``` is the path to your TSV file. If the paths contains a space-char, then please use quotation marks around them,
  * e.g., ```source:"Pilot ST - French - Agata Savary.tsv"```.
- 	Arg3) path for the second annotation file by typing: ```target:ANNOTATION_FILE_PATH```, where ```ANNOTATION_FILE_PATH``` is the path to your TSV file. * e.g., ```target:"Pilot ST - French - John Kennedy.tsv"```.
+ Arg3) path for the second annotation file by typing: ```target:ANNOTATION_FILE_PATH```, where ```ANNOTATION_FILE_PATH``` is the path to your TSV file. * e.g., ```target:"Pilot ST - French - John Kennedy.tsv"```.
 
 ## Optional Arguments: 
 Optionally, you can ask for a verbose report by typing ```verbose``` as an argument in the command line. 
