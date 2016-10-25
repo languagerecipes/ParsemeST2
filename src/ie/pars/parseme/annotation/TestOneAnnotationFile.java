@@ -16,23 +16,30 @@
  */
 package ie.pars.parseme.annotation;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Behrang QasemiZadeh <zadeh at phil.hhu.de>
  */
 public class TestOneAnnotationFile {
-    public static void process(String file, String annotationTypeSetting) throws Exception {
+    public static void process(String file, String annotationTypeSetting) {
 
-        SettingsAnnotationType annotateTypeSetting = new SettingsAnnotationType(annotationTypeSetting);
-        System.out.println("Parsing your annotation file..."
-                + "\nIf there are errors the parser will throw you an Exception! ");
-        String fileName = file;
-        AnnotationProfile ap = new AnnotationProfile(fileName, annotateTypeSetting);
-        System.out.println("Your file seems to be ok! Here are some stat for you: ");
-
-        Util.simpleReport(ap, true);
-
-        System.out.println("If you have passed the -verbose parameter in your command, then further information and the list of MWEs can be found in " + fileName + "-MWEList.txt");
+        try {
+            SettingsAnnotationType annotateTypeSetting = new SettingsAnnotationType(annotationTypeSetting);
+            System.out.println("Parsing your annotation file..."
+                    + "\nIf there are errors the parser will throw you an Exception! ");
+            String fileName = file;
+            AnnotationProfile ap = new AnnotationProfile(fileName, annotateTypeSetting);
+            System.out.println("Your file seems to be ok! Here are some stat for you: ");
+            
+            Util.simpleReport(ap, true);
+            
+            System.out.println("If you have passed the -verbose parameter in your command, then further information and the list of MWEs can be found in " + fileName + "-MWEList.txt");
+        } catch (Exception ex) {
+            System.out.println("Your file has not passed the test, please fix the errors and redo the test. ");
+        }
 
     }
 

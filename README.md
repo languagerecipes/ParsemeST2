@@ -14,11 +14,11 @@ $ ```git clone https://github.com/languagerecipes/ParsemeST2.git```
 
 To run the codes, please go to your OS terminal (for windows users, please type "cmd" in the "run or search box" of your "start button" and then click on "Command Prompt"). Type the following in the terminal:
 
-$ ```java -jar ParsemeST.jar arg1 arg2 (and opptionally arg3 and 4)```
+$ ```java -jar ParsemeST.jar arg1 arg2 arg3 etc.```
 
 instead of "arg1" and "arg2" in the above, use the following values:
 
-Obligatory input arguments `Arg1` and `Arg2` :
+Obligatory input arguments `arg1` and `arg2` :
 	Arg1) path for the first annotation file
 	Arg2) path for the second annotation file
 if the paths contains a space-char, then please use quotation marks around them,

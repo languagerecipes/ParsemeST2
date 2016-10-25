@@ -124,10 +124,11 @@ public class AnnotationProfile {
                 a.setKeyUsedDuringConstruction(annotationBit.getAnnotationBit2Key());
                 if (annotationMap.containsKey(a.getKeyUsedDuringConstruction())) {
                     System.err.println("Error in annotation... ");
-                    System.err.println("** -- File --> " + annotationFileTabSep);
-                    System.err.println("** -- At line number --> " + annotationBit.getLineNumeber());
-                    System.err.println("** -- The Token is --> " + annotationBit.toDebugString());
-                    throw new Exception("Errornous annotation in file ");
+                    System.err.println("\t** -- File --> " + annotationFileTabSep);
+                    System.err.println("\t** -- At line number --> " + annotationBit.getLineNumeber());
+                    System.err.println("\t** -- The Token is --> " + annotationBit.toDebugString());
+                    System.err.println("\"Errornous annotation in file!\"; please fix this problem and redo the test.");
+                    throw new Exception();
                 } else {
                     annotationMap.put(a.getKeyUsedDuringConstruction(), a);
                 }
@@ -150,8 +151,14 @@ public class AnnotationProfile {
            if(this.annotateTypeSetting.accepts(annotationType)){
                System.out.println(annotationType + " accepted: number of instances are " + annotationByCategory.get(annotationType).size());
            }else{
-           System.out.println("According to your settings, " + annotationType + " is not allowed: Please fix this for all the " + annotationByCategory.get(annotationType).size() +" instances!");
-           throw new Exception("First fix this problem and then come back to continue.");
+           System.out.println("According to your settings, " + annotationType + " is not allowed: Please fix this for all the instances: currently " + annotationByCategory.get(annotationType).size());
+               System.out.println("These instances are located in the following locations:");
+               TreeMap<AnnotationSpan, Annotation> annotationTypeMap = annotationByCategory.get(annotationType);
+               for(AnnotationSpan as: annotationTypeMap.keySet()){
+                   System.out.println("\t"+as.toString());
+               }
+            System.out.println("First fix this problem and then come back to continue.");
+           throw new Exception();
            }
             
         

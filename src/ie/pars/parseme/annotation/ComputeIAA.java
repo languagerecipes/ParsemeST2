@@ -30,51 +30,76 @@ public class ComputeIAA {
 
     static boolean verbose = false;
 
-    static void help(){
+    static void help() {
+        System.err.println("** To use the system for IAA computation use the following arguments:");
         System.err.println("Please provide this obligatory input arguments :\n"
-                
-                + "\tArg1) path for the first annotation file\n\tArg2) path for the second annotation file"
+                + "\tArg1) the language you use using lang:LANGUAGE e.g., lang:Brazilian, lang:English, lang:Polish, etc."
+                + "\tArg2) path for the first annotation file as source:PATH_TO_FILE\n"
+                + "\tArg3) path for the second annotation file as target:PATH_TO_FILE\n"
                 + "\nif the paths contains a space-char, then please use quotation marks around them,\n\t e.g., \"Pilot ST - French - Agata Savary.tsv\"");
-        System.err.println("Optionally, you can ask for some more using these"
-                + " arguments after the provided Arg1 and Arg2:\n"
-                + "\tArg3) verbose report by asserting the word verbose in front of the file names \n"
-                + "\tArg4) ask for restricting your annotation vocabulary by this argument:  Vocab:Your-annotation-vocab-file,\n"
-                + "\t\t e.g., Vocab:english-file.txt in which the english-file.txt is the file that contains your vocab,"
-                + "\n\t\t e.g., LVC, ID, etc.");
-        System.err.println("*About the vocab file: create a text file and and write each of the types separated by space-char or by new lines.");
-        System.err.println("*If you like to check only one file, for the first Arg1 and Arg2 referring to the same file."
-                + "\n\t e.g., \"Pilot ST - French - Agata Savary.tsv\" \"Pilot ST - French - Agata Savary.tsv\" ");
+        System.err.println("Optionally, you can ask for "
+                + "\t a detailed report by asserting the word verbose as an argument \n"
+        );
+
+        System.err.println("** To use the system for checking your annotation file use the following arguments:\n"
+                + "\tArg1) the language you use using lang:LANGUAGE e.g., lang:Brazilian, lang:English, lang:Polish, etc."
+                + "\tArg2) path for the first annotation file as source:PATH_TO_FILE\n");
 
     }
-    public static void main(String[] sugary) throws FileNotFoundException, Exception {
-       // try {
-       String annotationVaocabFile="";
-            if (sugary.length < 2) {
-                help();
-                return;
-            }
-            for (int i = 2; i < sugary.length; i++) {
-                if(sugary[i].equalsIgnoreCase("verbose")){
-                    System.out.println("Set to verbose mode.");
-                }else
-                if(sugary[i].toLowerCase().startsWith("vocab:")){
-                    System.out.println("Annotation vocan is now restricted.");
-                    annotationVaocabFile= sugary[i].split(":")[1];
+
+    public static void main(String[] sugary) throws FileNotFoundException {
+        // try {
+       // String annotationVaocabFile = "";
+       String lang = null;
+       String source = null;
+       String target = null;
+        if (sugary.length < 2) {
+            help();
+            return;
+        }
+        for (int i = 0; i < sugary.length; i++) {
+            if (sugary[i].equalsIgnoreCase("verbose")) {
+                System.out.println("Set to verbose mode.");
+                verbose = true;
+            } else {
+                if (sugary[i].toLowerCase().startsWith("lang:")) {
+                    lang = sugary[i].split(":")[1];
+                    System.out.println("Language set to " + lang);
+                } else if (sugary[i].toLowerCase().startsWith("source:")) {
+                    source = sugary[i].split(":")[1];
+                    System.out.println("Reading annotation file (1) from " + source);
+                } else if (sugary[i].toLowerCase().startsWith("target:")) {
+                    target = sugary[i].split(":")[1];
+                    System.out.println("Reading annotation file (2) from  " + target);
                 }
             }
+        }
+        if(lang==null){
+            System.out.println("Please set the input language ");
+            System.out.println("Here is a short guide for you:");
+            help();
+        }
+        if(source==null && target==null){
+            System.out.println("Please provide path to annotation files. Follow the instruction below: ");
+            help();
+        }
+        if(source!=null && target==null){
+            System.out.println("You have requested annotation file checking for " + source);
+            TestOneAnnotationFile.process(source, lang);
+            return;
+        }else if(source!=null && target==null){
+            System.out.println("You have requested annotation files checking and IAA computation.... ");
+        }
         
+        String file1 = source;// "Pilot ST - Farsi - Behrang (VO).txt";
+        String file2 = target; //"Pilot ST - Farsi - Mojgan (BQ corrected format - VO).txt";
+        SettingsAnnotationType sa = new SettingsAnnotationType(lang);
+        if (file1.equals(file2)) {
+            System.out.println("You have requested a check on " + file1);
             
-            
-            String file1 = sugary[0];// "Pilot ST - Farsi - Behrang (VO).txt";
-            String file2 = sugary[1]; //"Pilot ST - Farsi - Mojgan (BQ corrected format - VO).txt";
-            SettingsAnnotationType sa  = new SettingsAnnotationType(annotationVaocabFile);
-            if(file1.equals(file2)){
-                System.out.println("You have requested a check on " + file1);
-                TestOneAnnotationFile.process(file2, annotationVaocabFile);
-                return;
-            }
-            
-            
+        }
+
+        try {
             System.out.println("Checking text in annotation files ...");
             boolean checkTextConsistency;
 
@@ -114,14 +139,14 @@ public class ComputeIAA {
                 }
             }
 
-//        } catch (Exception ex) {
-//
-//            System.err.println("Exit with error ... please fix the reported problems and try to run the program again.");
-//            // Logger.getLogger(ComputeIAA.class.getName()).log(Level.SEVERE, null, ex);
-//            System.err.println("Here are the code lines that produces error: \n");
-//            System.out.println(ex);
-//        }
-//        System.out.println("Have a nice day!");
+        } catch (Exception ex) {
+
+            System.err.println("Exit with error ... please fix the reported problems and try to run the program again.");
+            // Logger.getLogger(ComputeIAA.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Here are the code lines that produces error: \n");
+            System.out.println(ex);
+        }
+        System.out.println("Have a nice day!");
 
     }
 

@@ -71,7 +71,7 @@ public class AnnotationSpan implements Comparable<AnnotationSpan> {
         for (String tokenString : tokenSpan) {
             sb.append(">").append(tokenString);
         }
-        return "offset:  " + this.lineCountOffset+" sentence:" + this.sentenceNumber + ">tokens" + sb.toString();
+        return "offset:  #Line:" + this.lineCountOffset+"> #Sentence:" + this.sentenceNumber + "> #Tokens" + sb.toString();
     }
 
     

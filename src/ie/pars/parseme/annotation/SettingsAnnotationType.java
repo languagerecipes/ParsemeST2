@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,29 +34,61 @@ import java.util.Set;
 public class SettingsAnnotationType {
 
     private Set<String> annotationTypes = null;
-    private boolean restricted = false;
+    private boolean restricted = true;
 
-    public  SettingsAnnotationType(String file) throws FileNotFoundException, IOException {
-        File f = new File(file);
-        if (f.exists()) {
-            annotationTypes = new HashSet<>();
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] split = line.split(" ");
-                annotationTypes.addAll(Arrays.asList(split));
-            }
-            if (!annotationTypes.isEmpty()) {
-                restricted = true;
-                System.err.println("Annotation types are now limited to " + annotationTypes.size() + " class/classes");
-                br.close();
-            }
-        }
-        if (!restricted) {
-            System.out.println("No annotation type is given: your file is parsed without any restriction on their types.");
-        }
+    final static String LANG_CATEGORY_RESOURCE = "resource/vmwe.cat";
+    
 
+    public SettingsAnnotationType(String language)  {
+        annotationTypes = new HashSet<>();
+        try {
+            
+            BufferedReader br = new BufferedReader(new FileReader(new File(LANG_CATEGORY_RESOURCE)));
+            String line="";
+            while((line=br.readLine())!=null){
+              String thisLang=  line.split("=")[0].toLowerCase();
+                if(thisLang.equalsIgnoreCase(language)){
+                  String[] types = line.split("=")[1].split(",");
+                  for(String type: types){
+                      if(type.trim().length()>0){
+                      annotationTypes.add(type.trim());}
+                  }
+                  break;
+                }
+            }
+            br.close();
+            System.out.println("* VMWE categories are loaded and limited to " + annotationTypes);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SettingsAnnotationType.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Setting for the specificed language are missing.\nPlease make sure that you have the file vmwe.cat in the resource folder and it includes language specific categories.\n");
+            System.exit(1);
+        } catch (IOException ex) {
+            Logger.getLogger(SettingsAnnotationType.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
+
+//    public  SettingsAnnotationType(String file) throws FileNotFoundException, IOException {
+//        File f = new File(file);
+//        if (f.exists()) {
+//            annotationTypes = new HashSet<>();
+//            BufferedReader br = new BufferedReader(new FileReader(file));
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                String[] split = line.split(" ");
+//                annotationTypes.addAll(Arrays.asList(split));
+//            }
+//            if (!annotationTypes.isEmpty()) {
+//                restricted = true;
+//                System.err.println("Annotation types are now limited to " + annotationTypes.size() + " class/classes");
+//                br.close();
+//            }
+//        }
+//        if (!restricted) {
+//            System.out.println("No annotation type is given: your file is parsed without any restriction on their types.");
+//        }
+//
+//    }
 
     public boolean accepts(String annotationType) {
         if(this.restricted){

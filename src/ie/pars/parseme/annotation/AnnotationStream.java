@@ -35,9 +35,9 @@ public class AnnotationStream {
     private BufferedReader in;
     private String line;
     private int currentSentenceNumber;
-    private    int lineCounter;
+    private int lineCounter;
     private int countToken;
-    private String fileName  ;
+    private String fileName;
 
     public AnnotationStream(String fileName) throws IOException {
         lineCounter = 0;
@@ -52,8 +52,6 @@ public class AnnotationStream {
     public int getCountToken() {
         return countToken;
     }
-    
-    
 
     private boolean nextLine() throws Exception {
         try {
@@ -67,11 +65,11 @@ public class AnnotationStream {
                     lineCounter++;
                     if (line.trim().length() == 0) {
                         System.err.println("Error in file: " + this.fileName);
-                        System.err.println("@ line number: " + lineCounter );
-                        System.err.println("-->two consecutive empty lines are not allowed " );
+                        System.err.println("@ line number: " + lineCounter);
+                        System.err.println("-->two consecutive empty lines are not allowed ");
                         throw new Exception("Error in line" + lineCounter + "  ... two consecutive empty lines are not allowed ");
                     }
-                }else{
+                } else {
                     countToken++;
                 }
             }
