@@ -10,6 +10,14 @@ Download the code from https://github.com/languagerecipes/ParsemeST2/raw/master/
 
 Alternatively, use the git commands to downlad and access files. Binaries can be found in the `bin.zip`. For example, clone this repo by:
 
+# What is the input format? 
+The inpus is a TSV file which is described here:
+http://typo.uni-konstanz.de/parseme/index.php/2-general/151-parseme-shared-task-pilot-annotation
+
+(!!! Note that one of the examples in the above link was not correct at the time of writing this document)
+
+
+
 $ ```git clone https://github.com/languagerecipes/ParsemeST2.git```
 
 # How to run this code? 
