@@ -45,7 +45,8 @@ $ ```java -jar ParsemeST.jar```
 
 For instanc running the code over the provided example file, with the arguments ```"Pilot2 ST - Template.tsv" "Pilot2 ST - Template.tsv"``` generates this output:
 
-$ ```java -jar ParsemeST.jar lang:English source:"Pilot2 ST - Template.tsv"```
+$ ```java -jar ParsemeST.jar lang:English source:"Copper ST - Template.tsv"```
+$ ```java -jar ParsemeST.jar lang:English source:"Copper ST - Template.tsv"```
 
 # Bugs and Issues
 Please report bugs and issues using Github: https://github.com/languagerecipes/ParsemeST2/issues 
